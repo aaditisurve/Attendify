@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakeAttendance</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            font-family: 'Comfortaa', sans-serif;
+        }
+
+        .fixed-size-iframe {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .fixed-size-iframe p {
+            color: #a474f3;
+            font-size: 18px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .fixed-size-iframe iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-top: 2px solid #a474f3;
+            margin-top: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #a474f3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            font-family: 'Comfortaa', sans-serif;
+        }
+
+        button:hover {
+            background-color: #9063c9;
+        }
+
+        img {
+            max-width: 350px;
+            position: fixed;
+            left: 150px;
+            opacity: 50%;
+        }
+    </style>
+</head>
+<body>
+    <img src="../static/imgs/Picture1.png" alt="University Logo">
+    <div class="container">
+        {% if attdone %}
+        <form id="attendanceForm" action="/showattendance" method="post">
+            <div class="fixed-size-iframe">
+                <p>Current class: {{ currentclass }} </p>
+                <p>Batches: {{ Batches }}</p>
+                <p>Students Present: {{total}}</p>
+                <iframe src="http://10.12.60.98:8080/browserfs.html" frameborder="0"></iframe>
+            </div>
+            <!-- Include hidden input fields to pass the values to the form -->
+            <input type="hidden" name="currentclass" value="{{ currentclass }}">
+            <input type="hidden" name="Batches" value="{{ Batches }}">
+            <input type="hidden" name="filepath" value="{{ filepath }}">
+            <input type="hidden" name="total" value="{{ total }}">
+            <button>See Attendance</button>
+            <button>Go to Home</button>
+        </form>
+        {% else %}
+        <form id="attendanceForm" action="/captureattendance" method="post">
+            <div class="fixed-size-iframe">
+                <p>Current class: <span style="color: white;">{{ currentclass }} </span></p>
+                <p>Batches: <span style="color: white;">{{ Batches }}</span></p>
+                <p>Number of Students: <span style="color: white;">{{total}}</span></p>
+                <iframe src="http://10.12.60.98:8080/browserfs.html" frameborder="0"></iframe>
+                <p>Live <span style="color: red;">{{classroom}}</span></p>
+            </div>
+            <!-- Include hidden input fields to pass the values to the form -->
+            <input type="hidden" name="currentclass" value="{{ currentclass }}">
+            <input type="hidden" name="Batches" value="{{ Batches }}">
+            <input type="hidden" name="total" value="{{ total }}">
+            <button type="button" onclick="submitAttendance()">Start Attendance</button>
+        </form>
+        <button><a href="/facultyprofile" style="text-decoration: none;">Go to Home</a></button>
+{% endif %}
+        <script>
+            function submitAttendance() {
+                alert("Attendance Started...");
+                document.getElementById("attendanceForm").submit();
+            }
+            function seeAttendance() {
+                document.getElementById("attendanceForm").submit();
+            }
+        </script>
+    </div>
+</body>
+</html>

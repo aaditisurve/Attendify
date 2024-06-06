@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../static/imgs/bueateasy.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+        }
+
+        header img {
+            max-width: 150px; /* Adjust the size of your logo */
+            max-height: 120px; /* Adjust the size of your logo */
+            margin-right: 10px;
+
+        }
+
+        header div {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            margin: 0px 50px;
+
+        }
+        form {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: rgba(21, 21, 21, 0.858);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #0091ff;
+        }
+
+        input, select
+  {      
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background: #606060c5;
+            font-size: 18px;
+            color: white;
+            
+        }
+
+        button {
+            margin: 0 10px;
+    padding: 13px 40px;
+    background: #0091ff;
+    border: 1px solid white;
+    color: #2d2d2d;
+    /* border: none; */
+    font-family: 'Comfortaa', sans-serif;
+    border-radius: 56px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Add a smooth transition effect for both background and padding */
+}
+
+button:hover {
+    background: #ffd000c5; /* Change the background color on hover */
+    transform: scale(1.08);
+    color: white; /* Scale the button on hover */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div style="width: 80%; display: flex; ">
+<!--            <img src="../static/imgs/univ-logo.png" alt="University Logo"> &lt;!&ndash; Replace with your university logo URL &ndash;&gt;-->
+            <div>
+                <h2 style="font-weight: 400; color: antiquewhite;"><span style="color: #0091ff; font-weight: 600;"> Attendify:</span> Set/Reset Time Table Form <span style="color: rgba(132, 132, 132, 0.636);">(Accessed via Admin Only)</span></h2> <!-- Replace with your university name -->
+            </div>
+        </div>
+        <img src="../static/imgs/Picture1.png" alt="University Logo" style="opacity: 50%;"> <!-- Replace with your university logo URL -->
+    </header>
+
+    <form action="/addtt" method="post">
+        <label for="facultyID">Faculty ID:</label>
+        <input type="text" id="faculty" name="facultyID">
+
+        <label for="courseid">Classroom:</label>
+        <input type="text" id="courseid" name="courseid" required>
+
+        <label for="teachtype">Type:</label>
+        <select id="teachtype" name="teachtype" required>
+            <option value="Lecture">Lecture</option>
+            <option value="Practical">Practical</option>
+            <option value="Tutorial">Tutorial</option>
+        </select>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" id="subject_name" name="subject_name" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+
+        <!-- <label for="days">Days:</label>
+        <input type="text" id="days" name="days" required> -->
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required>
+
+        <label for="group">Division:</label>
+        <input type="text" id="group" name="group" required>
+
+        <label for="batch">Batch:</label>
+        <input type="text" id="batch" name="batch" required>
+
+        <button type="submit">Submit</button>
+        <button type="button" id="updateBtn">Update Existing Info</button>
+        <a href="/Adminhome"><button type="button" id="updateBtn">Home</button></a>
+    </form>
+
+    <script>
+        // Add JavaScript logic for handling updates if needed
+        document.getElementById('updateBtn').addEventListener('click', function() {
+            // Implement the logic to fetch and populate existing data for the provided student ID
+            alert('Implement update logic here');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Add any necessary stylesheets or scripts here -->
+</head>
+<body style="background-color: #1d1d1d; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+<div style="text-align: center; padding: 20px;">
+    <!-- Logo -->
+    <img src="../static/imgs/Picture1.png" alt="University Logo" style="opacity: 50%;"width="300">
+    <!-- Greeting -->
+    <h1 style="margin: 10px 0;">Hi {{admin}}</h1>
+</div>
+
+<div class="container" style="display: flex; justify-content: space-around;">
+
+    <!-- Card for Retraining Model -->
+    <div class="card" style="background: linear-gradient(to bottom right, #383838, #292929); color: #ffffff;">
+        <img src="../static/imgs/facerecog.png" alt="Retraining Image" style="width:80%; border-radius: 5px 5px 0 0;">
+        <div class="container" style="padding: 16px;">
+            <h2 style="color: #ffffff;">Retraining Model</h2>
+            <p style="opacity: 0.8;">When you click the button model starts getting retrained with the latest datasets of images of students</p>
+            <button onclick="retrainModel()" style="background-color: #4CAF50; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-top: 10px; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Retrain</button>
+        </div>
+    </div>
+
+    <!-- Card for Configurations -->
+    <div class="card" style="background: linear-gradient(to bottom right, #383838, #292929); color: #ffffff;">
+        <div class="container" style="padding: 16px;">
+            <h2 style="color: #ffffff;">Backend Configurations</h2>
+            <p style="opacity: 0.8;">Model Name: CNN</p>
+            <p style="opacity: 0.8;">Epochs: 10</p>
+            <p style="opacity: 0.8;">Detection: Opencv Haar Cascades</p>
+            <p style="opacity: 0.8;">Number of images per student: 500</p>
+        </div>
+        <button style="background-color: #4CAF50; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-top: 10px; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;"><a href="/Adminhome" style="text-decoration: none;color: white;">Go To Home</a></button>
+    </div>
+
+</div>
+
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .card {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        width: 45%;
+        height: 58vh;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 5vh;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+        padding: 20px;
+    }
+
+    .card:hover {
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+    }
+</style>
+<!-- JavaScript function for retraining -->
+<script>
+    function retrainModel() {
+        alert("Retraining model...");
+        // Add your retraining logic here
+        // Example: Make an AJAX request to Flask route
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/retrain", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert("Model is trained");
+            }
+        };
+        xhr.send();
+    }
+</script>
+</body>
+</html>

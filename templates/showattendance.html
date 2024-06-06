@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Attendance</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #a474f3;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 10px auto 110px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #a474f3;
+            color: #fff;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .no-data {
+            color: #ff5c5c;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .button {
+padding: 13px 46px;
+background: #ffd000c5;
+border: 1px solid white;
+color: #2d2d2d;
+/* border: none; */
+font-family: 'Comfortaa', sans-serif;
+border-radius: 56px;
+cursor: pointer;
+font-size: 18px;
+transition: background 0.3s ease, transform 0.3s ease; /* Add a smooth transition effect for both background and padding */
+}
+.button:hover {
+background: #a474f3; /* Change the background color on hover */
+transform: scale(1.08);
+color: white; /* Scale the button on hover */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Attendance Table</h2>
+        <p>Current class: {{ currentclass }}</p>
+        <p>Batches: {{ Batches }}</p>
+        <p>Number of Students: {{ total }}</p>
+    </div>
+
+    {% if attendance_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>Student</th>
+                {% for date in dates %}
+                <th>{{ date }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student, attendance in attendance_data.items() %}
+            <tr>
+                <td>{{ student }}</td>
+                {% for value in attendance %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-data">No attendance data available.</p>
+    {% endif %}
+    <button class="button" onclick="location.href='/facultyprofile'">Go Back</button>
+</body>
+</html>

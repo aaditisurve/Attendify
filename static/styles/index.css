@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Intro Section */
+.intro {
+    height: 90vh;
+    background: url('../imgs/x.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+}
+
+.intro-text {
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    background: rgba(0, 0, 0, 0.5);
+    /* padding: 20px; */
+    border-radius: 5px;
+    width: 50%;
+    height: 90vh;
+    justify-content: flex-end;
+    /* padding-right: 5%; */
+}
+
+.txet {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.title {
+    /* margin-top: 35%; */
+    padding: 10px;
+    padding-bottom: 0px;
+    border-radius: 15px 15px 15px 15px;
+    font-size: 3rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    /* background: linear-gradient(90deg, #fff, #e74c3c); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: white;
+    /* border: 1px solid rgba(246, 243, 46, 0.638); */
+}
+
+.subtitle {
+    font-size: 31px;
+    padding: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(204, 204, 204);
+}
+
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0% 2%;
+    /* background: linear-gradient(90deg, #fff, #e74c3c); */
+    background-color: black;
+    color: #ffffff;
+border-bottom: 1px solid rgb(32, 32, 32);
+
+}
+
+.logo {
+    flex: 1;
+    text-align: left;
+}
+
+.logo a {
+    display: inline-flex;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.nav {
+    flex: 2;
+    text-align: center;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Rubik', sans-serif;
+    transition: color 0.3s;
+}
+
+.nav a.link-secondary {
+    color: #eac300;
+}
+
+.nav a:hover {
+    color: #0091ff;
+}
+
+.text-end {
+    flex: 1;
+    text-align: right;
+}
+
+.buttons button {
+    margin-right: 10px;
+    padding: 5px 15px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons button.btn-primary {
+    border-color: #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.buttons button.btn-primary:hover {
+    background: #0091ff;
+    border-color:#0091ff;
+    ;
+
+    color: #000000;
+}
+
+.profile-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.button-container {
+    display: grid;
+/* margin-top: 11px; */
+margin: auto;
+row-gap: 2vh;
+}
+
+.button {
+    margin: 0 10px;
+padding: 13px 46px;
+background: #ffd000c5;
+border: 1px solid white;
+color: #2d2d2d;
+/* border: none; */
+font-family: 'Comfortaa', sans-serif;
+border-radius: 56px;
+cursor: pointer;
+font-size: 18px;
+transition: background 0.3s ease, transform 0.3s ease; /* Add a smooth transition effect for both background and padding */
+}
+
+.button:hover {
+background: #0091ff; /* Change the background color on hover */
+transform: scale(1.08);
+color: white; /* Scale the button on hover */
+}
+/* About Section */
+#about {
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #1a1a1a; /* Dark background color */
+}
+
+#about div {
+max-width: 1200px;
+width: 100%;
+padding: 0 20px; /* Add padding to the sides */
+}
+
+
+#contactform h2 {
+font-size: 2em;
+margin: auto;
+text-align: center;
+margin-bottom: 20px;
+color: #ffffff;
+}
+#aboutus h2 {
+font-size: 2em;
+margin-bottom: 20px;
+
+color: #ffffff;
+}
+
+#about p {
+font-size: 1.2em;
+line-height: 1.6;
+color: #999; /* Light gray text color */
+margin-bottom: 10vh;
+}
+
+/* People Cards */
+.people-cards {
+display: flex;
+justify-content: space-around;
+margin-top: 20px;
+margin: auto;
+}
+
+.person-card {
+text-align: center;
+}
+
+.person-card img {
+width: 110px;
+height: 110px;
+border-radius: 50%;
+margin-bottom: 10px;
+padding: 3px;
+border: 2px solid #ffffffa8; /* Ring color */
+}
+
+.person-card h3 {
+font-size: 1em;
+color: #fff;
+font-family: 'Comfortaa', sans-serif;
+
+}
+
+.person-card p {
+font-size: 1em;
+color: #999;
+}
+
+
+/* Contact Form */
+#about form {
+display: flex;
+flex-direction: column;
+max-width: 400px;
+width: 100%;
+margin: auto ;
+margin-left: 5vw;
+/* background-color: rgba(0, 0, 0, 0.729); */
+padding: 30px;
+border: 1px solid white;
+border-radius: 15px;
+}
+
+#about form label {
+font-size: 1.2em;
+margin-bottom: 5px;
+color: #fff; /* White text color */
+}
+
+#about form input,
+#about form textarea {
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #666; /* Dark gray border color */
+border-radius: 5px;
+width: 100%;
+background-color: #333; /* Dark input background color */
+color: #fff; /* White text color */
+}
+
+#about form button  {
+    margin: 0 10px;
+padding: 13px;
+width: 50%;
+margin: 15px auto;
+background: #ffd000c5;
+border: 1px solid white;
+color: #2d2d2d;
+/* border: none; */
+font-family: 'Comfortaa', sans-serif;
+border-radius: 56px;
+cursor: pointer;
+font-size: 18px;
+transition: background 0.3s ease, transform 0.3s ease; /* Add a smooth transition effect for both background and padding */
+}
+
+#about form button:hover {
+background-color: #007acc;
+color: white;
+transform: scale(1.05);
+}
+
+/* Footer */
+#footer {
+background-color: #000000; /* Dark background color */
+color: #ffffffc9; /* White text color */
+padding: 30px 0;
+}
+
+.footer-container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.copyright {
+font-size: 1.2em;
+margin-bottom: 20px;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.footer-content {
+display: flex;
+justify-content: space-between;
+}
+
+.footer-section {
+flex: 1;
+margin-right: 20px;
+}
+
+.footer-section h3 {
+font-size: 1.2em;
+margin-bottom: 15px;
+}
+
+.footer-section p {
+font-size: 1em;
+margin-bottom: 10px;
+}
+
+.footer-section ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-section ul li {
+margin-bottom: 10px;
+}
+
+.social-links {
+display: flex;
+}
+
+.social-links a {
+display: block;
+background-color: #333; /* Dark background color for social icons */
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+margin-right: 10px;
+color: #fff; /* White icon color */
+}
+
+/* Font Awesome Icons (Make sure to include Font Awesome in your project) */
+.footer-section a i {
+font-size: 1.2em;
+}
+
+/* Add hover effect on social icons */
+.social-links a:hover {
+background-color: #007acc; /* Hover background color */
+}
+
+.quick-links ul{
+display: flex;
+}
+.quick-links a{
+text-decoration: none;
+font-size: 18px;
+color: rgba(228, 182, 0, 0.749);
+margin-right: 14px;
+}

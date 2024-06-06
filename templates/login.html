@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendify Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', sans-serif;
+
+        }
+
+        h2 {
+            color: #55aaff;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #777;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #55aaff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4488ff;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #888;
+        }
+
+        .logo {
+            display: block;
+            margin: 10vh auto;
+            width: 300px;
+            height: 120px;
+            background: url('static/imgs/Picture1.png') center/cover no-repeat;
+            /* border-radius: 50%; */
+        }
+        a {
+            color: #55aaff;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #4488ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo"></div>
+    <h2>Login Page</h2>
+    <form method="post" action="/loginpage">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <a href="/change_password">Forgot password?</a>
+    <footer>&copy; 2024 Attendify. All rights reserved.</footer>
+</body>
+
+</html>
