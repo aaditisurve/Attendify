@@ -263,10 +263,8 @@ from flask import render_template, redirect, url_for, session
 
 from datetime import datetime, timedelta, time
 
+
 from datetime import datetime, timedelta
-
-from datetime import datetime, timedelta, time
-
 
 @app.route('/facultyprofile')
 def facultyprofile():
@@ -290,7 +288,10 @@ def facultyprofile():
             for cd in class_details:
                 class_timing = cd['class_timing']
                 if isinstance(class_timing, str):
-                    class_time = datetime.strptime(class_timing, "%H:%M").time()
+                    try:
+                        class_time = datetime.strptime(class_timing, "%H:%M:%S").time()
+                    except ValueError:
+                        class_time = None  # Handle invalid time formats
                 elif isinstance(class_timing, timedelta):
                     class_time = (datetime.min + class_timing).time()
                 else:
@@ -305,21 +306,28 @@ def facultyprofile():
             next_class = None
 
             # Retrieve current time
-            current_time = datetime.now().time()
+            now = datetime.now()
+            current_time = now.time()
+            print(f"Current time: {current_time}")  # Debugging statement
 
             for class_time, cd in timings:
                 if class_time:
-                    class_start = datetime.combine(datetime.today(), class_time)
+                    class_start = datetime.combine(now.date(), class_time)
                     class_end = class_start + class_duration
-                    now = datetime.now()
+                    print(f"Checking class: {class_time} - Start: {class_start}, End: {class_end}")  # Debugging statement
 
                     if class_start <= now < class_end:
                         current_class = cd
+                        print(f"Current class found: {current_class}")  # Debugging statement
                     elif class_time > current_time and next_class is None:
                         next_class = cd
+                        print(f"Next class found: {next_class}")  # Debugging statement
 
             currentclasstime = current_class['class_timing'] if current_class else None
-            second_closest_classtime = next_class['class_timing'] if next_class else None
+            nextclasstime = next_class['class_timing'] if next_class else None
+
+            def format_timedelta(td):
+                return (datetime.min + td).time().strftime("%H:%M:%S") if td else None
 
             return render_template('faculty.html', name=faculty['name'], email=faculty['email'],
                                    depart=faculty['department'],
@@ -328,11 +336,10 @@ def facultyprofile():
                                    batches=[cd['batch_name'] for _, cd in timings],
                                    groups=[cd['grp'] for _, cd in timings],
                                    class_types=[cd['class_type'] for _, cd in timings],
-                                   currentclasstime=currentclasstime,
-                                   nextclasstime=second_closest_classtime)
+                                   currentclasstime=format_timedelta(currentclasstime),
+                                   nextclasstime=format_timedelta(nextclasstime))
 
     return render_template('faculty.html')
-
 
 
 @app.route('/Adminhome')
