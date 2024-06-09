@@ -172,7 +172,7 @@
         .attendance:hover {
             background-color: #45a049;
         }
-        
+
 /* Footer */
 #footer {
 background-color: #000000; /* Dark background color */
@@ -283,13 +283,13 @@ margin-right: 14px;
     <section>
         <h2><span style="color: #4caf50;">Faculty</span> Details</h2>
         <div class="details">
-        <img class="fcimg" src="../static/imgs/peopleImgs/user_faculty.png"  alt="Faculty Photo"> <!-- Replace with the actual path to your faculty photo -->
-<div class="textdetails">
-    <p><strong>Name : </strong>{{name}}</p>
-    <p><strong>Department : </strong>{{depart}}</p>
-    <p><strong>Email : </strong>{{email}}</p>
-</div>
-</div>
+            <img class="fcimg" src="../static/imgs/peopleImgs/user_faculty.png" alt="Faculty Photo"> <!-- Replace with the actual path to your faculty photo -->
+            <div class="textdetails">
+                <p><strong>Name : </strong>{{ name }}</p>
+                <p><strong>Department : </strong>{{ depart }}</p>
+                <p><strong>Email : </strong>{{ email }}</p>
+            </div>
+        </div>
 
         <h2>Time Table</h2>
         <table>
@@ -319,7 +319,7 @@ margin-right: 14px;
             <h2>Current Class</h2>
             {% if currentclasstime and currentclasstime in timings %}
                 <p>{{ class_types[timings.index(currentclasstime)] }}, {{ classrooms[timings.index(currentclasstime)] }}</p>
-                <p><strong>Time:</strong>{{ currentclasstime }}</p>
+                <p><strong>Time : </strong>{{ currentclasstime }}</p>
                 <form action="/takeattendance" method="post">
                     <input type="hidden" name="currentclass" value="{{ class_types[timings.index(currentclasstime)] }}">
                     <input type="hidden" name="Batches" value="{{ batches[timings.index(currentclasstime)] }}">
@@ -331,16 +331,15 @@ margin-right: 14px;
             {% endif %}
         </div>
 
-
-
         <h2>Next Class</h2>
         {% if nextclasstime and nextclasstime in timings %}
             <p>{{ class_types[timings.index(nextclasstime)] }}, {{ classrooms[timings.index(nextclasstime)] }}</p>
-            <p><strong>Time:</strong>{{ nextclasstime }}</p>
+            <p><strong>Time : </strong>{{ nextclasstime }}</p>
         {% else %}
             <p>No next class</p>
         {% endif %}
     </section>
+
 
 
 <footer id="footer">
